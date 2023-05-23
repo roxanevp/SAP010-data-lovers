@@ -1,10 +1,12 @@
 import { 
   filterPokemonsByType,
   filterPokemonByStr,
+  pokemonsOrderByNum,
   pokemonsOrderAZ,
   pokemonsOrderZA,
   pokemonsOrderByAttack,
-  pokemonsOrderByDefense
+  pokemonsOrderByDefense,
+  calcTypePer
 } from '../src/data.js';
 
 const bulbasaur = {
@@ -57,6 +59,10 @@ const datatest = {
   "pokemon" : [bulbasaur, charmander, squirtle]
 }
 
+const datatest2 = {
+  "pokemon" : [charmander, squirtle, bulbasaur]
+}
+
 describe('filterPokemonsByType', () => {
   it('is a function: Receive a data with a pokemon array and a string with the type and returns a pokemon array filtered by type', () => {
     expect(typeof filterPokemonsByType).toBe('function');
@@ -102,6 +108,20 @@ describe('filterPokemonByStr', () => {
   });
 });
 
+describe('pokemonsOrderByNum', () => {
+  it('is a function', () => {
+    expect(typeof pokemonsOrderByNum).toBe('function')
+  })
+
+  it('returns a list ordered by number', () => {
+    const result = pokemonsOrderByNum(datatest2)
+
+    const expected = [bulbasaur, charmander, squirtle]
+
+    expect(result).toEqual(expected)
+  })
+})
+
 describe('pokemonOrderAZ', () => {
   it('is a function', () => {
     expect(typeof pokemonsOrderAZ).toBe('function')
@@ -137,10 +157,12 @@ describe('pokemonsOrderByAttack', () => {
 
   it('returns a list ordered from highest to lowest attack', () => {
     const result = pokemonsOrderByAttack(datatest)
+    const result2 = pokemonsOrderByAttack(datatest2)
 
     const expected = [bulbasaur, charmander, squirtle]
 
     expect(result).toEqual(expected)
+    expect(result2).toEqual(expected)
   })
 })
 
@@ -153,6 +175,20 @@ describe('pokemonsOrderByDefense', () => {
     const result = pokemonsOrderByDefense(datatest)
 
     const expected = [squirtle, bulbasaur, charmander]
+
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('calcTypePer', () => {
+  it('is a function', () => {
+    expect(typeof calcTypePer).toBe('function')
+  })
+
+  it('returns a string with the percentagem of the type', () => {
+    const result = calcTypePer(datatest, "fire")
+
+    const expected = "33.33%"
 
     expect(result).toEqual(expected)
   })

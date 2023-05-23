@@ -136,11 +136,9 @@ const renderItem = (props, index) => {
           <p>No. ${num} - ${name}</p>
         </div>
         <div class="item-types">
-          ${types.map((type) => (
-            `<div class="item-type ${type}">
+          ${types.map((type) => (`<div class="item-type ${type}">
               <p>${type}</p>
-            </div>` 
-          )).join('')} 
+            </div>`)).join('')}
         </div>
       </div>
   </div>
