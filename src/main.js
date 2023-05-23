@@ -21,7 +21,7 @@ const textPokeRarity = document.getElementById("text-poke-rarity")
 const imagePoke = document.getElementById("image-poke")
 const textPokeHeight = document.getElementById("text-poke-height")
 const textPokeWeight = document.getElementById("text-poke-weight")
-const textPokeSpawnChance = document.getElementById("text-poke-spawn-chance")
+const textPokeEgg = document.getElementById("text-poke-egg")
 const textPokeAbout = document.getElementById("text-poke-about")
 const textPokeFacts = document.getElementById("text-poke-facts")
 
@@ -60,7 +60,7 @@ function loadActivePokemonInfo(pokemon) {
   textPokeName.innerHTML = firstToUpperCase(pokemon.name)
   textPokeHeight.innerHTML = pokemon.size.height
   textPokeWeight.innerHTML = pokemon.size.weight
-  textPokeSpawnChance.innerHTML = pokemon['spawn-chance'] || 0 //Adicionado || 0 para caso haja retorno null, retornar 0
+  textPokeEgg.innerHTML = firstToUpperCase(pokemon.egg)
   textPokeAbout.innerHTML = pokemon.about
   if (pokemon.type.length === 1) {
     textPokeFacts.innerHTML = `This Pokemon type is ${firstToUpperCase(pokemon.type[0])}, which represents ${calcTypePer(data, pokemon.type[0])} of Kanto and Johto Pokemons.`;
