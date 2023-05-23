@@ -5,7 +5,8 @@ import {
   pokemonsOrderAZ,
   pokemonsOrderZA,
   pokemonsOrderByAttack,
-  pokemonsOrderByDefense
+  pokemonsOrderByDefense,
+  calcTypePer
 } from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
@@ -22,6 +23,7 @@ const textPokeHeight = document.getElementById("text-poke-height")
 const textPokeWeight = document.getElementById("text-poke-weight")
 const textPokeSpawnChance = document.getElementById("text-poke-spawn-chance")
 const textPokeAbout = document.getElementById("text-poke-about")
+const textPokeFacts = document.getElementById("text-poke-facts")
 
 const inputPokeName = document.getElementById("input-poke-name")
 const selectPokeFilter = document.getElementById("select-poke-filter")
@@ -55,11 +57,18 @@ function loadActivePokemonInfo(pokemon) {
   textPokeRarity.innerHTML = firstToUpperCase(pokemon['pokemon-rarity'])
   imagePoke.src = pokemon.img
   imagePoke.alt = pokemon.name
+  textPokeName.innerHTML = firstToUpperCase(pokemon.name)
   textPokeHeight.innerHTML = pokemon.size.height
   textPokeWeight.innerHTML = pokemon.size.weight
   textPokeSpawnChance.innerHTML = pokemon['spawn-chance'] || 0 //Adicionado || 0 para caso haja retorno null, retornar 0
   textPokeAbout.innerHTML = pokemon.about
-  textPokeName.innerHTML = firstToUpperCase(pokemon.name)
+  if (pokemon.type.length === 1) {
+    textPokeFacts.innerHTML = `This Pokemon type is ${firstToUpperCase(pokemon.type[0])}, which represents ${calcTypePer(data, pokemon.type[0])} of Kanto and Johto Pokemons.`;
+  } else {
+    textPokeFacts.innerHTML = `This Pokemon types are ${firstToUpperCase(pokemon.type[0])} and ${firstToUpperCase(pokemon.type[1])}. ` +
+                             `The type ${firstToUpperCase(pokemon.type[0])} represents ${calcTypePer(data, pokemon.type[0])} of Kanto and Johto Pokemons, ` +
+                             `while the type ${firstToUpperCase(pokemon.type[1])} corresponds to ${calcTypePer(data, pokemon.type[1])} of these generations.`;
+  }
 
   //adicionado estas funcoes para dentro do loadActivePokemonInfo para quando fazer a pesquisa também mudar a cor da pagina
   const type = pokemon.type[0];
@@ -84,9 +93,9 @@ const cardClick = (element) => {
   const value = element.dataset.value; //nesta linha eu pego o numero do pokemon clicado do elemento
   const pokemon = filterPokemonByStr(data, value)[0] // nesta linha eu busco nos dados o pokemon que tenha esse numero
 
-  element.classList.add('active'); // adiciona a classe active no elemento clicado
   const activeElement = document.querySelector('#pokemon-'+activePokemon) //pega qual o elemento ativo anterior 
   activeElement.className = 'list-item' //remove todas as classes do elemento menos o item list
+  element.classList.add('active'); // adiciona a classe active no elemento clicado
 
   loadActivePokemonInfo(pokemon) //nesta linha eu troco as informacoes da tela
 
@@ -148,3 +157,4 @@ const loadPokemonList = (pokemons) => {
 
 // Quando a tela é carregada, chama a função loadPokemonList
 window.onload = loadPokemonList(data.pokemon);
+

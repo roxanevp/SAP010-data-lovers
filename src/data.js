@@ -107,3 +107,11 @@ export const pokemonsOrderByDefense = (data) => {
 
   return pokemonsOrdened
 }
+
+export const calcTypePer = (data, type) => {
+  const pokemons = data.pokemon
+
+  const countType = filterPokemonsByType(data, type)
+
+  return ((countType.length/pokemons.length)*100).toFixed(2) + "%"
+}
