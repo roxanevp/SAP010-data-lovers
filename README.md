@@ -7,7 +7,8 @@
 
 <p align="center">
   <a href="https://roxanevp.github.io/SAP010-data-lovers/">Demo</a> -
-  <a href="https://www.figma.com/file/N2ML63T4v5z2Yssi9Iq0p2/Pok%C3%A9dex?type=design&node-id=0%3A1&t=hphxDfaammiAJgH9-1/">Layout</a> 
+  <a href="https://www.figma.com/file/N2ML63T4v5z2Yssi9Iq0p2/Pok%C3%A9dex?type=design&node-id=0%3A1&t=hphxDfaammiAJgH9-1/">Layout</a> -
+  <a href="https://www.figma.com/file/WUwMMWWcFMQI0knfpBA8bH/Prot%C3%B3tipoDeBaixaFidelidade?type=design&node-id=0%3A1&t=5VboZmEVMlv3vqy3-1">Modelo</a>
 </p>
   
 ## Sobre o projeto
@@ -20,6 +21,9 @@ Sort Attack e Defense      |  Sort A-Z e Z-A
 :-------------------------:|:-------------------------:
 ![image](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjU5M2ZlM2RlZTc0OWU4MzhjOGVhZTY4MzdhOGQ4MjhiNjRmOTBjMiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/4k50qg3E1pGn8C7SmA/giphy.gif)  |  ![image](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWMzNThjNTA2MWViMjQxYWM0MGM2MmU3YmFlZDYzOTRlOWM3NDhlMiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/cwbSaGAfLzYjDNWgJO/giphy.gif)
 
+Responsividade Total           |  Responsividade Info
+:-------------------------:|:-------------------------:
+![image](https://media.giphy.com/media/szuYUB88bcJMzR60Xm/giphy.gif)  |  ![image](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTUwMjkxMThhNWE4MTcwMzhhZjI0MWQxNTU0ZTZkYTMwODRjYTUzZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/HTbw3rDBqBof1dKYr1/giphy.gif)
 
 Criamos uma pokédex onde o usuários terão total controle dos seus bichinhos. Um lugar onde possa ver seus pokemon's e todas as informações ao qual vem com eles, como: nome, número, tipo, gênero, peso, altura e etc.. E também opções que possa filtrá-los.
 
