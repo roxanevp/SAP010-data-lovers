@@ -1,4 +1,4 @@
-import { 
+import {
   filterPokemonsByType,
   filterPokemonByStr,
   pokemonsOrderByNum,
@@ -6,190 +6,186 @@ import {
   pokemonsOrderZA,
   pokemonsOrderByAttack,
   pokemonsOrderByDefense,
-  calcTypePer
-} from '../src/data.js';
+  calcTypePer,
+} from "../src/data.js";
 
+// Criação de dados para os testes
 const bulbasaur = {
-  "num": "001",
-  "name": "bulbasaur",
-  "type": [
-    "grass",
-    "poison"
-  ],
-  "stats": {
+  num: "001",
+  name: "bulbasaur",
+  type: ["grass", "poison"],
+  stats: {
     "base-attack": "118",
     "base-defense": "111",
     "base-stamina": "128",
     "max-cp": "1115",
-    "max-hp": "113"
-  }
-}
+    "max-hp": "113",
+  },
+};
 
 const charmander = {
-  "num": "004",
-  "name": "charmander",
-  "type": [
-    "fire"
-  ],
-  "stats": {
+  num: "004",
+  name: "charmander",
+  type: ["fire"],
+  stats: {
     "base-attack": "116",
     "base-defense": "93",
     "base-stamina": "118",
     "max-cp": "980",
-    "max-hp": "105"
-  }
-}
+    "max-hp": "105",
+  },
+};
 
 const squirtle = {
-  "num": "007",
-  "name": "squirtle",
-  "type": [
-    "water"
-  ],
-  "stats": {
+  num: "007",
+  name: "squirtle",
+  type: ["water"],
+  stats: {
     "base-attack": "94",
     "base-defense": "121",
     "base-stamina": "127",
     "max-cp": "946",
-    "max-hp": "112"
-  }
-}
+    "max-hp": "112",
+  },
+};
 
 const datatest = {
-  "pokemon" : [bulbasaur, charmander, squirtle]
-}
+  pokemon: [bulbasaur, charmander, squirtle],
+};
 
 const datatest2 = {
-  "pokemon" : [charmander, squirtle, bulbasaur]
-}
+  pokemon: [charmander, squirtle, bulbasaur],
+};
 
-describe('filterPokemonsByType', () => {
-  it('is a function: Receive a data with a pokemon array and a string with the type and returns a pokemon array filtered by type', () => {
-    expect(typeof filterPokemonsByType).toBe('function');
+// Execução dos testes
+// Cada describe é um conjunto de testes, nesse caso um conjunto para cada function
+// Cada it é um caso de teste da função
+describe("filterPokemonsByType", () => {
+  it("is a function: Receive a data with a pokemon array and a string with the type and returns a pokemon array filtered by type", () => {
+    expect(typeof filterPokemonsByType).toBe("function");
   });
 
-  it('Receive ({\'pokemon\' : [bulbasaur, charmander, squirtle]}, \'fire\') and returns [charmander]', () => {
-    const result = filterPokemonsByType(datatest, 'fire')
+  it("Receive ({'pokemon' : [bulbasaur, charmander, squirtle]}, 'fire') and returns [charmander]", () => {
+    const result = filterPokemonsByType(datatest, "fire");
 
-    const expected = [charmander]
+    const expected = [charmander];
 
     expect(result).toEqual(expected);
   });
 });
 
-
-describe('filterPokemonByStr', () => {
-  it('is a function', () => {
-    expect(typeof filterPokemonByStr).toBe('function');
+describe("filterPokemonByStr", () => {
+  it("is a function", () => {
+    expect(typeof filterPokemonByStr).toBe("function");
   });
 
-  it('returns a list with pokemons that contain the string in their name', () => {
-    const result = filterPokemonByStr(datatest, 'squ')
+  it("returns a list with pokemons that contain the string in their name", () => {
+    const result = filterPokemonByStr(datatest, "squ");
 
-    const expected = [squirtle]
+    const expected = [squirtle];
 
     expect(result).toEqual(expected);
-  })
+  });
 
-  it('returns a list with pokemons that contain the string in their type', () => {
-    const result = filterPokemonByStr(datatest, 'grass')
+  it("returns a list with pokemons that contain the string in their type", () => {
+    const result = filterPokemonByStr(datatest, "grass");
 
-    const expected = [bulbasaur]
+    const expected = [bulbasaur];
 
-    expect(result).toEqual(expected)
-  });  
+    expect(result).toEqual(expected);
+  });
 
-  it('returns a list with the pokemon filtered by the number', () => {
-    const result = filterPokemonByStr(datatest, '001')
+  it("returns a list with the pokemon filtered by the number", () => {
+    const result = filterPokemonByStr(datatest, "001");
 
-    const expected = [bulbasaur]
+    const expected = [bulbasaur];
 
-    expect(result).toEqual(expected)
+    expect(result).toEqual(expected);
   });
 });
 
-describe('pokemonsOrderByNum', () => {
-  it('is a function', () => {
-    expect(typeof pokemonsOrderByNum).toBe('function')
-  })
+describe("pokemonsOrderByNum", () => {
+  it("is a function", () => {
+    expect(typeof pokemonsOrderByNum).toBe("function");
+  });
 
-  it('returns a list ordered by number', () => {
-    const result = pokemonsOrderByNum(datatest2)
+  it("returns a list ordered by number", () => {
+    const result = pokemonsOrderByNum(datatest2);
 
-    const expected = [bulbasaur, charmander, squirtle]
+    const expected = [bulbasaur, charmander, squirtle];
 
-    expect(result).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+  });
+});
 
-describe('pokemonOrderAZ', () => {
-  it('is a function', () => {
-    expect(typeof pokemonsOrderAZ).toBe('function')
-  })
+describe("pokemonOrderAZ", () => {
+  it("is a function", () => {
+    expect(typeof pokemonsOrderAZ).toBe("function");
+  });
 
-  it('returns a list ordered from A to Z', () => {
-    const result = pokemonsOrderAZ(datatest)
+  it("returns a list ordered from A to Z", () => {
+    const result = pokemonsOrderAZ(datatest);
 
-    const expected = [bulbasaur, charmander, squirtle]
+    const expected = [bulbasaur, charmander, squirtle];
 
-    expect(result).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+  });
+});
 
-describe('pokemonOrderZA', () => {
-  it('is a function', () => {
-    expect(typeof pokemonsOrderZA).toBe('function')
-  })
+describe("pokemonOrderZA", () => {
+  it("is a function", () => {
+    expect(typeof pokemonsOrderZA).toBe("function");
+  });
 
-  it('returns a list ordered from Z to A', () => {
-    const result = pokemonsOrderZA(datatest)
+  it("returns a list ordered from Z to A", () => {
+    const result = pokemonsOrderZA(datatest);
 
-    const expected = [squirtle, charmander, bulbasaur]
+    const expected = [squirtle, charmander, bulbasaur];
 
-    expect(result).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+  });
+});
 
-describe('pokemonsOrderByAttack', () => {
-  it('is a function', () => {
-    expect(typeof pokemonsOrderByAttack).toBe('function')
-  })
+describe("pokemonsOrderByAttack", () => {
+  it("is a function", () => {
+    expect(typeof pokemonsOrderByAttack).toBe("function");
+  });
 
-  it('returns a list ordered from highest to lowest attack', () => {
-    const result = pokemonsOrderByAttack(datatest)
-    const result2 = pokemonsOrderByAttack(datatest2)
+  it("returns a list ordered from highest to lowest attack", () => {
+    const result = pokemonsOrderByAttack(datatest);
+    const result2 = pokemonsOrderByAttack(datatest2);
 
-    const expected = [bulbasaur, charmander, squirtle]
+    const expected = [bulbasaur, charmander, squirtle];
 
-    expect(result).toEqual(expected)
-    expect(result2).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+    expect(result2).toEqual(expected);
+  });
+});
 
-describe('pokemonsOrderByDefense', () => {
-  it('is a function', () => {
-    expect(typeof pokemonsOrderByDefense).toBe('function')
-  })
+describe("pokemonsOrderByDefense", () => {
+  it("is a function", () => {
+    expect(typeof pokemonsOrderByDefense).toBe("function");
+  });
 
-  it('returns a list ordered from highest to lowest defense', () => {
-    const result = pokemonsOrderByDefense(datatest)
+  it("returns a list ordered from highest to lowest defense", () => {
+    const result = pokemonsOrderByDefense(datatest);
 
-    const expected = [squirtle, bulbasaur, charmander]
+    const expected = [squirtle, bulbasaur, charmander];
 
-    expect(result).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+  });
+});
 
-describe('calcTypePer', () => {
-  it('is a function', () => {
-    expect(typeof calcTypePer).toBe('function')
-  })
+describe("calcTypePer", () => {
+  it("is a function", () => {
+    expect(typeof calcTypePer).toBe("function");
+  });
 
-  it('returns a string with the percentagem of the type', () => {
-    const result = calcTypePer(datatest, "fire")
+  it("returns a string with the percentagem of the type", () => {
+    const result = calcTypePer(datatest, "fire");
 
-    const expected = "33.33%"
+    const expected = "33.33%";
 
-    expect(result).toEqual(expected)
-  })
-})
+    expect(result).toEqual(expected);
+  });
+});
